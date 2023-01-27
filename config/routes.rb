@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
 
+  ### SYSTEM ###
+  get "/status", to: "health#status"
+
   devise_scope :user do
     authenticated :user do
       root to: "accounts#current", as: :authenticated_root

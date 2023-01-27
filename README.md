@@ -9,6 +9,7 @@ Rails app with the defaults I like to build with :)
   * admin/users
   * code standards
   * github actions
+  * health check
 
 ## Setup
 
