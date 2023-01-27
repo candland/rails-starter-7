@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
     if signed_in?
       # Lookup polciy directly to avoid the setting the scope check
       # scope = Pundit.policy_scope!(pundit_user, Account)
-      puts "\n\n curent_account_id: #{session[:current_account_id].class}\n\n"
       scope = current_user.accounts
       current_account_id = session[:current_account_id] ||= scope.first.try(:id)
       if current_account_id
