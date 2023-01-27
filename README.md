@@ -62,20 +62,20 @@ Rails app with the defaults I like to build with :)
 
 ## Development
 
-- [ ] Minitest Spec
+- [X] [Minitest Spec](https://github.com/minitest/minitest-rails)
 - [ ] VCR
-- [ ] FactoryBot
+- [X] [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 - [ ] Lookbook
 - [ ] OverCommit
 - [ ] Overmind
 - [ ] Guard
-- [ ] Annotate
-- [ ] Faker
-- [ ] Letter Opener
-- [ ] Solargraph
-- [ ] Ordinare
+- [X] [Annotate](https://github.com/ctran/annotate_models)
+- [X] [Faker](https://github.com/faker-ruby/faker)
+- [X] [Letter Opener](https://github.com/ryanb/letter_opener)
+- [X] Solargraph
+- [X] Ordinare
 - [ ] Slim Lint
-- [ ] Standard
+- [X] Standard
 - [ ] Webmock
 - [ ] Simplecov
 

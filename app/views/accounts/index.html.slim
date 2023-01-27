@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Accounts
+
+#accounts
+  - @accounts.each do |account|
+    == render account
+    p
+      = link_to "Show this account", account
+
+= link_to "New account", new_account_path

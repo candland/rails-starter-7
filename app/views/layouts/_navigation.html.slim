@@ -1,0 +1,11 @@
+nav
+
+  h2
+    img.inline-block.h-9.w-9.rounded-full alt="" src="#{current_user.gravatar_url}"
+    = Current.user.first_name
+  - if Current.account
+    h3 = Current.account
+
+  .flex.gap-2
+    = link_to "Log out", destroy_user_session_path
+    = link_to "Change account", accounts_path
