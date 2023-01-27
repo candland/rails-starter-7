@@ -78,6 +78,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    brakeman (5.4.0)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -88,6 +89,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    childprocess (4.1.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
@@ -141,6 +143,7 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    iniparse (1.5.0)
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
@@ -195,6 +198,10 @@ GEM
       shellany (~> 0.0)
     ordinare (0.4.0)
     orm_adapter (0.5.0)
+    overcommit (0.60.0)
+      childprocess (>= 0.6.3, < 5)
+      iniparse (~> 1.4)
+      rexml (~> 3.2)
     pagy (6.0.1)
     parallel (1.22.1)
     parser (3.2.0.0)
@@ -295,6 +302,9 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
+    slim_lint (0.23.0)
+      rubocop (>= 0.78.0)
+      slim (>= 3.0, < 6.0)
     solargraph (0.48.0)
       backport (~> 1.2)
       benchmark
@@ -364,6 +374,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootsnap
+  brakeman
   capybara
   debug
   devise
@@ -377,6 +388,7 @@ DEPENDENCIES
   letter_opener
   minitest-rails (~> 7.0.0)
   ordinare
+  overcommit
   pagy (~> 6.0)
   pg (~> 1.1)
   premailer-rails
@@ -387,6 +399,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   slim-rails
+  slim_lint
   solargraph
   sprockets-rails
   standard
@@ -398,7 +411,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.4.5

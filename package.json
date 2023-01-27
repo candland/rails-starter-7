@@ -1,0 +1,25 @@
+{
+  "name": "switch_board",
+  "private": true,
+  "dependencies": {
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "standard": "^17.0.0",
+    "stylelint": "^14.5.3",
+    "stylelint-config-standard": "^29.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "/app/javascript/lib/",
+      "/lib/assets/",
+      "/public/packs/"
+    ],
+    "globals": [
+      "FormData"
+    ],
+    "env": {
+      "browser": true
+    }
+  }
+}

@@ -4,6 +4,8 @@ Rails app with the defaults I like to build with :)
 
 ## Setup
 
+  - bundle install
+  - yarn install
   - Search and replace
   - Create DB
   - Migrate DB
@@ -13,6 +15,8 @@ Rails app with the defaults I like to build with :)
   - Ruby version: 3.1
   - postgresql
   - redis
+  - nodejs
+  - yarn
 
 ## Configuration
 
@@ -29,7 +33,13 @@ Rails app with the defaults I like to build with :)
 
 ## Deployment instructions
 
-## Auth
+Setup overcommit
+
+    overcommit --sign
+    overcommit --sign --pre-commit
+    overcommit --install
+
+### Auth
 
 - [X] [Devise](https://github.com/heartcombo/devise)
 - [ ] Pundit
@@ -61,8 +71,7 @@ Rails app with the defaults I like to build with :)
 - [X] [Minitest Spec](https://github.com/minitest/minitest-rails)
 - [X] [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 - [ ] Lookbook
-- [ ] OverCommit
-- [ ] Overmind
+- [X] [OverCommit](https://github.com/sds/overcommit)
 - [X] [Guard](https://github.com/guard/guard)
 - [X] [Guard Minitest](https://github.com/guard/guard-minitest)
 - [X] [Annotate](https://github.com/ctran/annotate_models)
@@ -70,15 +79,14 @@ Rails app with the defaults I like to build with :)
 - [X] [Letter Opener](https://github.com/ryanb/letter_opener)
 - [X] Solargraph
 - [X] Ordinare
-- [ ] Slim Lint
+- [X] Slim Lint
 - [X] Standard
+- [X] StandardJS
+- [X] StyleLint
 - [ ] VCR
 - [ ] Webmock
 - [ ] Simplecov
-
-## Test
-
-- [ ] Brakeman
+- [X] Brakeman
 
 ## Generators
 

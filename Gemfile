@@ -1,19 +1,19 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "~> 3.1.3"
 
 # Rails
-gem "rails", "~> 7.0.4", ">= 7.0.4.2"
-gem "sprockets-rails"
+gem "image_processing", "~> 1.2"
+gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "importmap-rails"
-gem "turbo-rails"
+gem "rails", "~> 7.0.4", ">= 7.0.4.2"
+gem "redis", "~> 4.0"
+gem "sprockets-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
-gem "redis", "~> 4.0"
-gem "image_processing", "~> 1.2"
+gem "turbo-rails"
 
 # Auth
 gem "devise"
@@ -39,6 +39,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "brakeman"
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
 end
@@ -47,14 +48,16 @@ group :development do
   gem "annotate"
 
   # Testing
-  gem "minitest-rails", "~> 7.0.0"
   gem "faker"
-  gem "letter_opener"
   gem "guard"
   gem "guard-minitest"
+  gem "letter_opener"
+  gem "minitest-rails", "~> 7.0.0"
 
   # Code
   gem "ordinare", require: false
+  gem "overcommit", require: false
+  gem "slim_lint", require: false
   gem "solargraph"
   gem "standard", require: false
 
