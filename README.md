@@ -33,11 +33,21 @@ Rails app with the defaults I like to build with :)
 
 ## Deployment instructions
 
-Setup overcommit
+### Setup overcommit
 
     overcommit --sign
     overcommit --sign --pre-commit
     overcommit --install
+
+### Code coverage
+
+Run code converage
+
+    COVERAGE=1 rails test
+
+That will output a report to converage/index.html. Use `CI=1` to output JSON for continuous itegration.
+
+## Gems
 
 ### Auth
 
@@ -85,7 +95,7 @@ Setup overcommit
 - [X] StyleLint
 - [ ] VCR
 - [ ] Webmock
-- [ ] Simplecov
+- [X] Simplecov
 - [X] Brakeman
 
 ## Generators

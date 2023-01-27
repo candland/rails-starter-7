@@ -57,6 +57,7 @@ group :development do
   # Code
   gem "ordinare", require: false
   gem "overcommit", require: false
+  gem "simplecov", require: false
   gem "slim_lint", require: false
   gem "solargraph"
   gem "standard", require: false
