@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: %i[show edit update destroy]
 
   def index
-    @accounts = Account.all
+    @pagy, @accounts = pagy(Account.all)
   end
 
   def show

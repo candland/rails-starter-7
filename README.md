@@ -40,10 +40,10 @@ Rails app with the defaults I like to build with :)
 ### UI / Views
 
 - [ ] ViewComponents
-- [ ] Slim Rails
+- [X] [Slim Rails](https://github.com/slim-template/slim)
 - [ ] Premailer Rails
-- [ ] Heroicon
-- [ ] Pagy
+- [ ] [Heroicon](https://github.com/bharget/heroicon)
+- [ ] [Pagy](https://github.com/ddnexus/pagy)
 - [ ] Simple Form
 
 ### Jobs
@@ -56,14 +56,9 @@ Rails app with the defaults I like to build with :)
 - [ ] jwt
 - [ ] versionist
 
-### Maybes
-
-- [ ] Devise
-
 ## Development
 
 - [X] [Minitest Spec](https://github.com/minitest/minitest-rails)
-- [ ] VCR
 - [X] [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 - [ ] Lookbook
 - [ ] OverCommit
@@ -76,13 +71,13 @@ Rails app with the defaults I like to build with :)
 - [X] Ordinare
 - [ ] Slim Lint
 - [X] Standard
+- [ ] VCR
 - [ ] Webmock
 - [ ] Simplecov
 
 ## Test
 
 - [ ] Brakeman
-- [ ] Factory Bot Rails
 
 ## Generators
 

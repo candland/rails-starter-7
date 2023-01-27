@@ -21,7 +21,8 @@ gem "devise"
 # gem "pundit"
 
 # UI / Views
-gem "pagy", "~> 5"
+gem "heroicon"
+gem "pagy", "~> 6.0"
 # gem "simple_form"
 gem "slim-rails"
 # gem "view_component"
