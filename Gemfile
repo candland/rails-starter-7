@@ -50,6 +50,8 @@ group :development do
   gem "minitest-rails", "~> 7.0.0"
   gem "faker"
   gem "letter_opener"
+  gem "guard"
+  gem "guard-minitest"
 
   # Code
   gem "ordinare", require: false

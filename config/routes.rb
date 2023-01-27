@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {confirmations: "confirmations"}
 
-  resources :accounts do
-    collection do
-      get :current
+  ### USERS ###
+  authenticate :user do
+    resources :accounts do
+      collection do
+        get :current
+      end
     end
   end
 

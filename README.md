@@ -63,7 +63,8 @@ Rails app with the defaults I like to build with :)
 - [ ] Lookbook
 - [ ] OverCommit
 - [ ] Overmind
-- [ ] Guard
+- [X] [Guard](https://github.com/guard/guard)
+- [X] [Guard Minitest](https://github.com/guard/guard-minitest)
 - [X] [Annotate](https://github.com/ctran/annotate_models)
 - [X] [Faker](https://github.com/faker-ruby/faker)
 - [X] [Letter Opener](https://github.com/ryanb/letter_opener)
