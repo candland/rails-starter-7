@@ -76,8 +76,8 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 
 ### Jobs
 
-- [ ] Sidekiq
-- [ ] Sidekiq Scheduler
+- [X] [Sidekiq](https://github.com/mperham/sidekiq)
+- [X] [Sidekiq Scheduler]()
 
 ### API
 
@@ -86,6 +86,7 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 
 ## Development
 
+- [X] [Exception Notification](https://github.com/smartinez87/exception_notification)
 - [X] [Minitest Spec](https://github.com/minitest/minitest-rails)
 - [X] [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 - [ ] Lookbook

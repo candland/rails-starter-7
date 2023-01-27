@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     end
   end
 
+  ### ADMIN ###
+  authenticate :user do
+    require "sidekiq/web"
+    require "sidekiq-scheduler/web"
+    mount Sidekiq::Web => "/sidekiq"
+  end
+
   devise_scope :user do
     authenticated :user do
       root to: "accounts#current", as: :authenticated_root
