@@ -30,5 +30,18 @@ module RailsStarter7
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Set generator defaults
+    config.generators.system_tests = nil
+    config.generators do |g|
+      g.orm :active_record, primary_key_type: :uuid
+      g.stylesheets false
+      g.scaffold_stylesheet false
+      g.helper false
+      g.jbuilder false
+    end
+
+    # Default mount for action cable
+    config.action_cable.mount_path = "/cable"
   end
 end

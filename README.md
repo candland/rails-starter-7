@@ -1,24 +1,86 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app with the defaults I like to build with :)
 
-Things you may want to cover:
+## System dependencies
 
-* Ruby version
+  - Ruby version: 3.1
+  - postgresql
+  - redis
 
-* System dependencies
+## Configuration
 
-* Configuration
+## Database creation
 
-* Database creation
+    rails db:create
+    rails db:migrate
 
-* Database initialization
+## How to run the test suite
 
-* How to run the test suite
+    rails test
 
-* Services (job queues, cache servers, search engines, etc.)
+## Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Deployment instructions
 
-* ...
+## Libraries
+
+- [ ] Devise
+- [ ] Pretender
+- [ ] User Roles (new lib?)
+- [ ] Pundit
+- [ ] PunditCan (new lib?)
+
+### UI / Views
+
+- [ ] ViewComponents
+- [ ] Slim Rails
+- [ ] Premailer Rails
+- [ ] Heroicon
+- [ ] Pagy
+- [ ] Simple Form
+
+### Jobs
+
+- [ ] Sidekiq
+- [ ] Sidekiq Scheduler
+
+### API
+
+- [ ] jwt
+- [ ] versionist
+
+### Maybes
+
+- [ ] Devise
+
+## Development
+
+- [ ] Minitest Spec
+- [ ] VCR
+- [ ] FactoryBot
+- [ ] Lookbook
+- [ ] OverCommit
+- [ ] Overmind
+- [ ] Guard
+- [ ] Annotate
+- [ ] Faker
+- [ ] Letter Opener
+- [ ] Solargraph
+- [ ] Ordinare
+- [ ] Slim Lint
+- [ ] Standard
+- [ ] Webmock
+- [ ] Simplecov
+
+## Test
+
+- [ ] Brakeman
+- [ ] Factory Bot Rails
+
+## Generators
+
+- [ ] Services
+- [ ] Polciy
+- [ ] Scaffold
+- [ ] Worker
