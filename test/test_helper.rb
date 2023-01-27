@@ -19,10 +19,19 @@ end
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "vcr"
 require "minitest/rails"
 
 # Consider setting MT_NO_EXPECTATIONS to not add expectations to Object.
-# ENV["MT_NO_EXPECTATIONS"] = true
+ENV["MT_NO_EXPECTATIONS"] = true
+
+VCR.configure do |config|
+  config.cassette_library_dir = "test/cassettes"
+  config.hook_into :webmock
+  config.allow_http_connections_when_no_cassette = false
+  config.ignore_localhost = true
+  # config.debug_logger = $stderr
+end
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods

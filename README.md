@@ -2,6 +2,14 @@
 
 Rails app with the defaults I like to build with :)
 
+## Overview
+
+  * users
+  * accounts
+  * admin/users
+  * code standards
+  * github actions
+
 ## Setup
 
   - bundle install
@@ -93,8 +101,8 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 - [X] Standard
 - [X] StandardJS
 - [X] StyleLint
-- [ ] VCR
-- [ ] Webmock
+- [X] [VCR](https://github.com/vcr/vcr)
+- [X] Webmock
 - [X] Simplecov
 - [X] Brakeman
 
