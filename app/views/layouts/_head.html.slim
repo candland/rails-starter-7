@@ -1,0 +1,30 @@
+meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+meta charset="utf-8"
+meta content="IE=edge" http-equiv="X-UA-Compatible"
+meta content="width=device-width, initial-scale=1" name="viewport"
+
+title
+  - if Rails.env.development?
+    | DEV -
+  - if content_for(:title)
+    = yield :title
+  - else
+    = t("app_name")
+
+= csrf_meta_tags
+= csp_meta_tag
+
+meta name="description" content="Switchboard"
+
+link rel="icon" type="image/x-icon" href="/favicon.ico"
+link rel="icon" type="image/png" href="/favicon.png" sizes="32x32"
+link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"
+meta name="msapplication-TileImage" content="/mstile-144x144.png"
+meta name="msapplication-TileColor" content="#ffffff"
+
+= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+
+= stylesheet_link_tag "application", "data-turbo-track": "reload"
+= javascript_importmap_tags
+
+= yield :js_head

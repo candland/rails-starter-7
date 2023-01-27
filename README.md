@@ -2,6 +2,12 @@
 
 Rails app with the defaults I like to build with :)
 
+## Setup
+
+  - Search and replace
+  - Create DB
+  - Migrate DB
+
 ## System dependencies
 
   - Ruby version: 3.1
@@ -23,13 +29,13 @@ Rails app with the defaults I like to build with :)
 
 ## Deployment instructions
 
-## Libraries
+## Auth
 
-- [ ] Devise
-- [ ] Pretender
-- [ ] User Roles (new lib?)
+- [X] [Devise](https://github.com/heartcombo/devise)
 - [ ] Pundit
 - [ ] PunditCan (new lib?)
+- [ ] User Roles (new lib?)
+- [ ] Pretender
 
 ### UI / Views
 
