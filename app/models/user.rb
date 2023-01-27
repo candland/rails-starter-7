@@ -39,9 +39,10 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :confirmable, :lockable, :timeoutable, :trackable
 
-  has_many :account_users
+  has_many :account_users, dependent: :destroy
   has_many :accounts, through: :account_users
 
+  validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
 

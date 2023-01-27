@@ -42,9 +42,9 @@ Rails app with the defaults I like to build with :)
 - [ ] ViewComponents
 - [X] [Slim Rails](https://github.com/slim-template/slim)
 - [ ] Premailer Rails
-- [ ] [Heroicon](https://github.com/bharget/heroicon)
-- [ ] [Pagy](https://github.com/ddnexus/pagy)
-- [ ] Simple Form
+- [X] [Heroicon](https://github.com/bharget/heroicon)
+- [X] [Pagy](https://github.com/ddnexus/pagy)
+- [X] [Simple Form](https://github.com/heartcombo/simple_form)
 
 ### Jobs
 

@@ -23,6 +23,7 @@ gem "devise"
 # UI / Views
 gem "heroicon"
 gem "pagy", "~> 6.0"
+gem "simple_form"
 # gem "simple_form"
 gem "slim-rails"
 # gem "view_component"

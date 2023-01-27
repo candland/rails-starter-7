@@ -5,4 +5,4 @@ div
   '|
   =< link_to "Back to accounts", accounts_path
 
-  = button_to "Destroy this account", @account, method: :delete
+  = button_to "Destroy this account", @account, method: :delete, data: { turbo_confirm: "Are you sure?" }

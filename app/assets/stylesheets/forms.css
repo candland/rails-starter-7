@@ -1,0 +1,17 @@
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"]::file-selector-button {
+  @apply text-white bg-indigo-600 hover:bg-indigo-700 font-medium text-sm cursor-pointer border-0 py-2.5 pl-8 pr-4;
+
+  margin-inline-start: -1rem;
+  margin-inline-end: 1rem;
+}
+
+abbr[title="required"] {
+  @apply !text-red-500 no-underline;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+  @apply text-gray-400 bg-gray-100;
+}

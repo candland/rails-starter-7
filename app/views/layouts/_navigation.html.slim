@@ -6,6 +6,9 @@ nav
   - if Current.account
     h3 = Current.account
 
-  .flex.gap-2
-    = link_to "Log out", destroy_user_session_path
+  .flex.gap-3
+    => link_to edit_user_registration_path, class: "flex" do
+      => heroicon("pencil-square", options: { class: "h-4 w-4" })
+      | Edit Profile
     = link_to "Change account", accounts_path
+    = link_to "Log out", destroy_user_session_path

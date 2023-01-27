@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: %i[show edit update destroy]
 
   def index
-    @pagy, @accounts = pagy(Account.all)
+    @pagy, @accounts = pagy(current_user.accounts.all)
   end
 
   def show
@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
   def current
     @account = Current.account
     if @account
-      authorize @account, :show?
+      # authorize @account, :show?
       render :show
     else
       redirect_to new_account_path
@@ -29,6 +29,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    @account.users << current_user
 
     if @account.save
       set_current_account @account
