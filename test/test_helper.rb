@@ -19,11 +19,14 @@ end
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
-require "vcr"
 require "minitest/rails"
+require "vcr"
+require "sidekiq/testing"
 
 # Consider setting MT_NO_EXPECTATIONS to not add expectations to Object.
-ENV["MT_NO_EXPECTATIONS"] = true
+# ENV["MT_NO_EXPECTATIONS"] = true
+
+Sidekiq::Testing.fake!
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"

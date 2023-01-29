@@ -25,7 +25,6 @@ gem "heroicon"
 gem "pagy", "~> 6.0"
 gem "premailer-rails"
 gem "simple_form"
-# gem "simple_form"
 gem "slim-rails"
 # gem "view_component"
 # After View_component!
@@ -38,6 +37,10 @@ gem "sidekiq-scheduler"
 # Monitoring
 gem "exception_notification"
 
+# Utils
+gem "http"
+gem "masked_attribute", git: "git@github.com:candland/masked_attribute.git"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -49,17 +52,17 @@ group :development, :test do
   gem "brakeman"
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
+  gem "faker"
+  gem "minitest-rails", "~> 7.0.0"
 end
 
 group :development do
   gem "annotate"
 
   # Testing
-  gem "faker"
   gem "guard"
   gem "guard-minitest"
   gem "letter_opener"
-  gem "minitest-rails", "~> 7.0.0"
 
   # Code
   gem "ordinare", require: false
@@ -81,4 +84,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  # HTTP
+  gem "vcr"
+  gem "webmock"
 end

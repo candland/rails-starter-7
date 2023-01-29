@@ -111,6 +111,6 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 ## Generators
 
 - [ ] Services
-- [ ] Polciy
+- [ ] Policy
 - [ ] Scaffold
 - [ ] Worker
