@@ -11,10 +11,14 @@ Rails.application.routes.draw do
   end
 
   ### ADMIN ###
-  authenticate :user do
-    require "sidekiq/web"
-    require "sidekiq-scheduler/web"
-    mount Sidekiq::Web => "/sidekiq"
+  authenticate :user, lambda { |u| u.admin? } do
+    namespace :admin do
+      require "sidekiq/web"
+      require "sidekiq-scheduler/web"
+      mount Sidekiq::Web => "/sidekiq"
+
+      resource :dashboard, only: [:show], controller: "dashboard"
+    end
   end
 
   ### SYSTEM ###

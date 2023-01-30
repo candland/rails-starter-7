@@ -41,5 +41,13 @@ FactoryBot.define do
     password { "testing88" }
     password_confirmation { "testing88" }
     confirmed_at { DateTime.current }
+
+    trait :admin do
+      roles { [:admin] }
+    end
+
+    trait :sysadmin do
+      roles { [:sysadmin] }
+    end
   end
 end
