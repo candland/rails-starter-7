@@ -18,7 +18,7 @@ gem "turbo-rails"
 # Auth
 gem "devise"
 # gem "jwt"
-# gem "pundit"
+gem "pundit_can", git: "git@github.com:candland/pundit_can.git"
 
 # UI / Views
 gem "heroicon"

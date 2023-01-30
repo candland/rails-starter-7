@@ -1,8 +1,8 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: %i[show edit update destroy]
+  load_resource
 
   def index
-    @pagy, @accounts = pagy(current_user.accounts.all)
+    @pagy, @accounts = pagy(@accounts)
   end
 
   def show
@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
   def current
     @account = Current.account
     if @account
-      # authorize @account, :show?
+      authorize @account, :show?
       render :show
     else
       redirect_to new_account_path
@@ -21,7 +21,6 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = Account.new
   end
 
   def edit
@@ -54,13 +53,7 @@ class AccountsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_account
-    @account = Account.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
   def account_params
-    params.require(:account).permit(:name)
+    permitted_attributes(Account)
   end
 end

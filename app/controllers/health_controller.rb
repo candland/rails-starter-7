@@ -1,7 +1,6 @@
 class HealthController < ApplicationController
-  skip_before_action :authenticate_user!
-  # skip_scoped_check :status
-  # skip_authorized_check :status
+  skip_scoped_check :status
+  skip_authorized_check :status
 
   def status
     render status: 200, json: {

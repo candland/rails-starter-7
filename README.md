@@ -61,9 +61,9 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 ### Auth
 
 - [X] [Devise](https://github.com/heartcombo/devise)
-- [ ] Pundit
-- [ ] PunditCan (new lib?)
-- [ ] User Roles (new lib?)
+- [X] [Pundit](https://github.com/varvet/pundit)
+- [X] [PunditCan](https://github.com/candland/pundit_can)
+- [X] [User Roles](https://github.com/candland/masked_attribute)
 - [ ] Pretender
 
 ### UI / Views
@@ -82,8 +82,8 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 
 ### API
 
-- [ ] jwt
-- [ ] versionist
+- [ ] JWT
+- [ ] Versionist
 
 ## Development
 

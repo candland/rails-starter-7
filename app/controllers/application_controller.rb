@@ -1,21 +1,29 @@
 class ApplicationController < ActionController::Base
+  include PunditCan::LoadAndAuthorize
   include Pagy::Backend
 
   before_action :prepare_exception_notifier
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :authenticate_user!
   before_action :setup_current
 
   layout :layout_by_resource
 
   protected
 
+  rescue_from Pundit::NotAuthorizedError do |exception|
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_back(fallback_location: unauthenticated_root_url)
+  end
+
+  def pundit_user
+    Current
+  end
+
   def find_current_account
     if signed_in?
       # Lookup polciy directly to avoid the setting the scope check
-      # scope = Pundit.policy_scope!(pundit_user, Account)
-      scope = current_user.accounts
+      scope = Pundit.policy_scope!(pundit_user, Account)
       current_account_id = session[:current_account_id] ||= scope.first.try(:id)
       if current_account_id
         set_current_account scope.where(id: current_account_id).first
