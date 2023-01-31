@@ -1,6 +1,8 @@
+- content_for :banner do
+  .bg-green-600.text-white.text-right.px-3.text-medium
+    | Admin
+
 - content_for :content do
-  .bg-red-600.text-white
-    p Admin
   = yield
 
 = render template: "layouts/application"

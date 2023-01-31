@@ -1,14 +1,20 @@
-nav
+nav.flex.flex-row.justify-between.px-3.py-3.border-b.border-black.mb-6
+  header.flex.flex-row.gap-3.items-center
+    h2.text-lg.font-medium
+      = link_to "RailsStarter7", "/"
+    - if Current.account
+      h3 = Current.account
 
-  h2
-    img.inline-block.h-9.w-9.rounded-full alt="" src="#{current_user.gravatar_url}"
-    = Current.user.first_name
-  - if Current.account
-    h3 = Current.account
+  .flex.gap-4.items-center
+    = link_to accounts_path, class: "flex items-center gap-1" do
+      | Change Account
+      => heroicon("arrow-path", options: { class: "h-4 w-4" })
+    - if policy([:admin, :dashboard]).show?
+      = link_to admin_dashboard_path, class: "flex items-center gap-1" do
+        | Admin
+        => heroicon("lock-closed", options: { class: "h-4 w-4" })
 
-  .flex.gap-3
-    => link_to edit_user_registration_path, class: "flex" do
-      => heroicon("pencil-square", options: { class: "h-4 w-4" })
-      | Edit Profile
-    = link_to "Change account", accounts_path
+    => link_to edit_user_registration_path, class: "flex items-center gap-1" do
+      img.inline-block.h-9.w-9.rounded-full alt="" src="#{current_user.gravatar_url}"
+      span.flex.place-items-center = Current.user.first_name
     = link_to "Log out", destroy_user_session_path

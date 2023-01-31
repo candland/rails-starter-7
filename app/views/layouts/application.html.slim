@@ -9,7 +9,10 @@ html class="h-full antialiased" lang="#{I18n.locale}"
         | You (#{true_user.first_name}) are signed in as #{current_user.to_s}
         =< link_to "Back to admin", stop_impersonating_users_path
 
-    .container.mx-auto.mt-28.px-6
-      = render "layouts/navigation"
+    - if content_for?(:banner)
+      = yield(:banner)
 
+    = render "layouts/navigation"
+
+    .container.mx-auto.px-6
       = content_for?(:content) ? yield(:content) : yield
