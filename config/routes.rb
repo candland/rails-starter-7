@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   ### USERS ###
   authenticate :user do
+    resources :users, only: [] do
+      collection do
+        get :stop_impersonating
+      end
+    end
     resources :accounts do
       collection do
         get :current
@@ -17,7 +22,11 @@ Rails.application.routes.draw do
       require "sidekiq-scheduler/web"
       mount Sidekiq::Web => "/sidekiq"
 
-      resources :users, except: [:show]
+      resources :users, except: [:show] do
+        member do
+          get :impersonate
+        end
+      end
       resource :dashboard, only: [:show], controller: "dashboard"
     end
   end

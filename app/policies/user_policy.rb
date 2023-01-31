@@ -19,6 +19,10 @@ class UserPolicy < ApplicationPolicy
     context.user == record
   end
 
+  def stop_impersonating?
+    true
+  end
+
   def permitted_attributes
     [:email, :password, :first_name, :last_name, :password_confirmation, :current_password]
   end

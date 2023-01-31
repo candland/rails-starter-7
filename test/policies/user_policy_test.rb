@@ -35,4 +35,9 @@ class UserPolicyTest < ActiveSupport::TestCase
     assert @policy.destroy?
     refute @other_policy.show?
   end
+
+  def test_stop_impersonating
+    assert @policy.stop_impersonating?
+    assert @other_policy.stop_impersonating?
+  end
 end

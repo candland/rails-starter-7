@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  impersonates :user
+
   protected
 
   rescue_from Pundit::NotAuthorizedError do |exception|
@@ -43,6 +45,7 @@ class ApplicationController < ActionController::Base
 
   def setup_current
     Current.user = current_user
+    Current.true_user = true_user
     Current.account = find_current_account
   end
 

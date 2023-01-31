@@ -259,6 +259,8 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
+    pretender (0.4.0)
+      actionpack (>= 5.2)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -469,6 +471,7 @@ DEPENDENCIES
   pagy (~> 6.0)
   pg (~> 1.1)
   premailer-rails
+  pretender
   puma (~> 5.0)
   pundit_can!
   rack-mini-profiler

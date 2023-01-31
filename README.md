@@ -64,7 +64,7 @@ That will output a report to converage/index.html. Use `CI=1` to output JSON for
 - [X] [Pundit](https://github.com/varvet/pundit)
 - [X] [PunditCan](https://github.com/candland/pundit_can)
 - [X] [User Roles](https://github.com/candland/masked_attribute)
-- [ ] Pretender
+- [X] [Pretender](https://github.com/ankane/pretender)
 
 ### UI / Views
 

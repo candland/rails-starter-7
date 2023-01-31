@@ -36,4 +36,9 @@ class Admin::UserPolicyTest < ActiveSupport::TestCase
     assert @policy.destroy?
     refute @other_policy.destroy?
   end
+
+  def test_impersonate
+    assert @policy.impersonate?
+    refute @other_policy.impersonate?
+  end
 end

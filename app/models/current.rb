@@ -1,3 +1,3 @@
 class Current < ActiveSupport::CurrentAttributes
-  attribute :user, :account
+  attribute :user, :account, :true_user
 end

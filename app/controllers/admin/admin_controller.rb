@@ -1,4 +1,6 @@
 class Admin::AdminController < ApplicationController
+  layout "admin"
+
   # Scope pundit to admin
   def policy_scope(scope, **kwargs)
     super([:admin, scope], **kwargs)

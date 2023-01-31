@@ -33,6 +33,11 @@ class Admin::UsersController < Admin::AdminController
     redirect_to admin_users_url, notice: "User was successfully destroyed."
   end
 
+  def impersonate
+    impersonate_user(@user)
+    redirect_to current_accounts_path
+  end
+
   private
 
   def user_params

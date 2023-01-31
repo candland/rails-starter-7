@@ -1,4 +1,8 @@
 class Admin::UserPolicy < Admin::AdminPolicy
+  def impersonate?
+    context.user.admin?
+  end
+
   def permitted_attributes
     [:email,
       :first_name,
