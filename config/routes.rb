@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       require "sidekiq-scheduler/web"
       mount Sidekiq::Web => "/sidekiq"
 
+      resources :users, except: [:show]
       resource :dashboard, only: [:show], controller: "dashboard"
     end
   end

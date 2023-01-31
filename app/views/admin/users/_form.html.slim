@@ -1,0 +1,15 @@
+= simple_form_for([:admin, @user]) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :email
+    = f.input :password
+    = f.input :confirmed?, as: :boolean, label: "Confirm Now"
+    = f.input :locked_at?, as: :boolean, label: "Unlock Now"
+    = f.input :roles, as: :check_boxes, collection: User::ROLES.map { [_1.to_s.humanize, _1] }
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,36 @@
+h1 Editing user
+
+p
+  strong Confirmed at:
+  =< @user.confirmed_at&.to_fs(:dt_tz)
+p
+  strong Locked at:
+  =< @user.locked_at&.to_fs(:dt_tz)
+p
+  strong Failed attempts:
+  =< @user.failed_attempts
+p
+  strong Sign in count:
+  =< @user.sign_in_count
+p
+  strong Current IP:
+  =< @user.current_sign_in_ip
+p
+  strong Current sign in:
+  =< @user.current_sign_in_at&.to_fs(:dt_tz)
+p
+  strong Last IP:
+  =< @user.last_sign_in_ip
+p
+  strong Last sign in:
+  =< @user.last_sign_in_at&.to_fs(:dt_tz)
+p
+  strong Created:
+  =< @user.created_at.to_fs(:dt_tz)
+
+== render "form", user: @user
+
+br
+
+div
+  =< link_to "Back to users", admin_users_path
