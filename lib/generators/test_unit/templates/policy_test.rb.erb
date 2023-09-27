@@ -1,0 +1,30 @@
+require 'test_helper'
+
+<% module_namespacing do -%>
+class <%= class_name %>PolicyTest < ActiveSupport::TestCase
+  class UserTest < <%= class_name %>PolicyTest
+    setup do
+      @user = create(:user)
+      @account = @user.accounts.first
+      @context = UserContext.new(@user, @account)
+
+      @<%= file_name.underscore %> = create(:<%= file_name.underscore %>)
+    end
+
+    test "for a user" do
+      assert_permissions(@context, <%= scoped_value %>,
+        index: true,
+        show: true,
+        new: false,
+        create: false,
+        edit: false,
+        update: false,
+        destroy: false)
+    end
+
+    test "scope for a user" do
+      assert_equal 1, <%= class_name %>Policy::Scope.new(@context, <%= file_name.camelize %>).resolve.count
+    end
+  end
+end
+<% end -%>

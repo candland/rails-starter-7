@@ -1,0 +1,8 @@
+require "test_helper"
+
+class <%= class_name %>WorkerTest < ActiveSupport::TestCase
+  test "#perform" do
+    <%= class_name %>Worker.new.perform
+    fail "IMPL"
+  end
+end

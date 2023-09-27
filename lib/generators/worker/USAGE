@@ -1,0 +1,9 @@
+Description:
+    Creates a Sidekiq worker and test
+
+Example:
+    bin/rails generate worker Thing
+
+    This will create:
+        app/workers/thing_worker.rb
+        test/workers/thing_worker_test.rb
