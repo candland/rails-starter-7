@@ -50,7 +50,11 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-    devise_controller? ? "public" : "application"
+    if devise_controller?
+      user_signed_in? ? "application" : "public"
+    else
+      "application"
+    end
   end
 
   def after_sign_out_path_for(resource)

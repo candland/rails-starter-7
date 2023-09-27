@@ -1,6 +1,19 @@
-- if alert
-  p.text-sm.font-medium.text-red-800
-    = alert
 - if notice
-  p.text-sm.font-medium.text-green-800
-    = notice
+  .transition-opacity.ease-in-out.duration-1000.alert.p-4.bg-green-300.text-gray-900.z-30.lg:rounded-lg.shadow-lg.w-full.lg:mb-2.lg:self-end.lg:text-sm data-controller="flash" data-turbo-cache="false"
+    .flex.flex-row
+      #icon.pr-4
+        => heroicon("information-circle", options: { class: "text-green-700 h-4 w-4" })
+      p.flex-grow
+        = notice
+      button#close.flex.items-center.pl-4 data-action="flash#close"
+        => heroicon("x-mark", options: { class: "h-4 w-4" })
+- if alert
+  .transition-opacity.ease-in-out.duration-1000.alert.p-4.bg-red-300.text-gray-900.z-30.lg:rounded-lg.shadow-lg.w-full.lg:max-w-md.lg:mb-2.lg:self-end.lg:text-sm data-controller="flash" data-turbo-cache="false"
+    .flex.flex-row
+      #icon.pr-4
+        => heroicon("information-circle", options: { class: "text-red-700 h-4 w-4" })
+      p.flex-grow
+        = alert
+      button#close.flex.items-center.pl-4 data-action="flash#close"
+        i.fas.fa-fw.fa-times.text-xl
+        => heroicon("x-mark", options: { class: "h-4 w-4" })

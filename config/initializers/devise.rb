@@ -1,29 +1,5 @@
 # frozen_string_literal: true
 
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    # Handle Turbo
-    if request_format == :turbo_stream
-      redirect
-    # Handle API
-    elsif request.controller_class.to_s.start_with? "Api::"
-      json_api_error_response
-    else
-      super
-    end
-  end
-
-  def json_api_error_response
-    self.status = 401
-    self.content_type = "application/json"
-    self.response_body = {message: "Unauthorized", errors: nil}.to_json
-  end
-
-  def skip_format?
-    %w[html turbo_stream */*].include? request_format.to_s
-  end
-end
-
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -290,6 +266,9 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
   config.navigational_formats = ["*/*", :html, :turbo_stream]
 
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
+
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :get
 
@@ -305,8 +284,6 @@ Devise.setup do |config|
   config.warden do |manager|
     #   manager.intercept_401 = false
     #   manager.default_strategies(scope: :user).unshift :some_external_strategy
-    #
-    manager.failure_app = TurboFailureApp
   end
 
   # ==> Mountable engine configurations
