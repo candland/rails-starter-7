@@ -27,6 +27,7 @@ gem "premailer-rails"
 gem "pretender"
 gem "simple_form"
 gem "slim-rails"
+gem "subcomponent"
 # gem "view_component"
 # After View_component!
 # gem "lookbook"
