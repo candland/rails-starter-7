@@ -7,9 +7,9 @@ title
   - if Rails.env.development?
     | DEV -
   - if content_for(:title)
-    = yield :title
+    =< yield :title
   - else
-    = t("app_name")
+    =< "Rails Starter 7"
 
 = csrf_meta_tags
 = csp_meta_tag
