@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
 
   before_action :setup_current
 
-  layout :layout_by_resource
-
   impersonates :user
 
   protected
@@ -49,19 +47,11 @@ class ApplicationController < ActionController::Base
     Current.account = find_current_account
   end
 
-  def layout_by_resource
-    if devise_controller?
-      user_signed_in? ? "application" : "public"
-    else
-      "application"
-    end
+  def after_sign_out_path_for _resource
+    unauthenticated_root_path
   end
 
-  def after_sign_out_path_for(resource)
-    session_path(resource)
-  end
-
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for resource
     stored_location_for(resource) || current_accounts_path
   end
 

@@ -4,7 +4,7 @@ html class="h-full antialiased" lang="#{I18n.locale}"
     = render "layouts/head"
   body.h-screen.flex.flex-col.bg-white
     = render partial: "shared/flash"
-    - if current_user != true_user
+    - if signed_in? && current_user != true_user
       .bg-red-600.text-white.text-center
         | You (#{true_user.first_name}) are signed in as #{current_user.to_s}
         =< link_to "Back to admin", stop_impersonating_users_path
