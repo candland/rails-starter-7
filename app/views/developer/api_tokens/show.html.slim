@@ -15,7 +15,7 @@ div id="#{dom_id @api_token}"
     =< @api_token.deleted_at
   p
     strong Calls:
-    =< @api_token.Calls
+    =< @api_token.calls
 
 = link_to "Edit", edit_developer_api_token_path(@api_token)
 = link_to "Back", developer_api_tokens_path

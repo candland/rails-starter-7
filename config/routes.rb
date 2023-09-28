@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   ### DEVELOPER ###
-  authenticate :user, lambda { |u| u.admin? } do
+  authenticate :user, lambda { |u| u.developer? } do
     namespace :developer do
       resources :api_tokens
     end
