@@ -31,6 +31,28 @@ Rails.application.routes.draw do
     end
   end
 
+  ### DEVELOPER ###
+  authenticate :user, lambda { |u| u.admin? } do
+    namespace :developer do
+      resources :api_tokens
+    end
+    apipie
+  end
+
+  #### API ####
+  namespace :api do
+    get "status", to: "api#status"
+    api_version(
+      module: "V1",
+      header: {name: "Accept", value: "application/api.rails-starter-7.com; version=1"},
+      path: {value: "v1"},
+      default: true
+    ) do
+      resource :auth, only: [:create]
+      resource :me, controller: :me
+    end
+  end
+
   ### SYSTEM ###
   get "/status", to: "health#status"
 

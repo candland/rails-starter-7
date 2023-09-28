@@ -17,8 +17,14 @@ gem "turbo-rails"
 
 # Auth
 gem "devise"
-# gem "jwt"
 gem "pundit_can", git: "git@github.com:candland/pundit_can.git"
+
+# API
+gem "apipie-rails"
+gem "jbuilder", "~> 2.7"
+gem "jwt"
+gem "maruku" # Needed for APIPIE
+gem "versionist"
 
 # UI / Views
 gem "heroicon"

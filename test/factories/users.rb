@@ -49,5 +49,9 @@ FactoryBot.define do
     trait :sysadmin do
       roles { [:sysadmin] }
     end
+
+    trait :developer do
+      roles { [:developer] }
+    end
   end
 end

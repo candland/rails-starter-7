@@ -282,6 +282,12 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   config.warden do |manager|
+    manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
+
+    # Adding the new JWT Strategy to the top of Warden's list,
+    # Scoped by what Devise would scope (typically :user)
+    manager.default_strategies(scope: :user).unshift :jwt
+
     #   manager.intercept_401 = false
     #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   end

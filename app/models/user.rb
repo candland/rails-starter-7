@@ -43,8 +43,9 @@ class User < ApplicationRecord
 
   has_many :account_users, dependent: :destroy
   has_many :accounts, through: :account_users
+  has_many :api_tokens
 
-  masked_attribute :roles, %i[admin sysadmin]
+  masked_attribute :roles, %i[admin sysadmin developer]
 
   validates :email, presence: true
   validates :first_name, presence: true

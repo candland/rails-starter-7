@@ -86,6 +86,9 @@ GEM
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
+    apipie-rails (1.2.2)
+      actionpack (>= 5.0)
+      activesupport (>= 5.0)
     ast (2.4.2)
     backport (1.2.0)
     base64 (0.1.1)
@@ -191,7 +194,11 @@ GEM
       rdoc
       reline (>= 0.3.8)
     jaro_winkler (1.5.6)
+    jbuilder (2.11.5)
+      actionview (>= 5.0.0)
+      activesupport (>= 5.0.0)
     json (2.6.3)
+    jwt (2.7.1)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -218,6 +225,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    maruku (0.7.3)
     matrix (0.4.2)
     method_source (1.0.0)
     mini_magick (4.12.0)
@@ -444,6 +452,10 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
     vcr (6.2.0)
+    versionist (2.0.1)
+      activesupport (>= 3)
+      railties (>= 3)
+      yard (~> 0.9.20)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -473,6 +485,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  apipie-rails
   bootsnap
   brakeman
   capybara
@@ -487,7 +500,10 @@ DEPENDENCIES
   http
   image_processing (~> 1.2)
   importmap-rails
+  jbuilder (~> 2.7)
+  jwt
   letter_opener
+  maruku
   masked_attribute!
   minitest-rails (~> 7.0.0)
   ordinare
@@ -517,6 +533,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   vcr
+  versionist
   web-console
   webdrivers
   webmock

@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
-<% module_namespacing do -%>
-class <%= class_name %>Policy < <%= parent_class %>
+class DeveloperPolicy < ApplicationPolicy
+  def index?
+    false
+  end
+
+  def show?
+    context.user.developer?
+  end
+
+  def docs?
+    context.user.developer?
+  end
+
   def permitted_attributes
     []
   end
@@ -13,4 +24,3 @@ class <%= class_name %>Policy < <%= parent_class %>
     # end
   end
 end
-<% end -%>

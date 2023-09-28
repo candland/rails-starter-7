@@ -2,19 +2,45 @@ nav.flex.flex-row.justify-between.px-3.py-3.border-b.border-black.mb-6
   header.flex.flex-row.gap-3.items-center
     h2.text-lg.font-medium
       = link_to "RailsStarter7", "/"
-    - if Current.account
+    - if signed_in? && Current.account
       h3 = Current.account
 
-  .flex.gap-4.items-center
-    = link_to accounts_path, class: "flex items-center gap-1" do
-      | Change Account
-      => heroicon("arrow-path", options: { class: "h-4 w-4" })
-    - if policy([:admin, :dashboard]).show?
-      = link_to admin_dashboard_path, class: "flex items-center gap-1" do
-        | Admin
-        => heroicon("lock-closed", options: { class: "h-4 w-4" })
+  #menu.flex.gap-4.items-center
+    .hidden.lg:flex.gap-4.items-center
+      = link_to accounts_path, class: "flex items-center gap-1" do
+        => heroicon("arrow-path", options: { class: "h-4 w-4" })
+        | Change Account
 
-    => link_to edit_user_registration_path, class: "flex items-center gap-1" do
-      img.inline-block.h-9.w-9.rounded-full alt="" src="#{current_user.gravatar_url}"
-      span.flex.place-items-center = Current.user.first_name
-    = link_to "Log out", destroy_user_session_path
+    .relative data-controller="dropdown"
+      => link_to "#", class: "flex items-center gap-1", data: { action: "click->dropdown#show" } do
+        img.inline-block.h-9.w-9.rounded-full alt="" src="#{current_user.gravatar_url}"
+        span.flex.place-items-center = Current.user.first_name
+
+      #user_menu.hidden.absolute.bg-white.p-4.shadow.border.right-0.w-48.flex.flex-col.gap-4 data-dropdown-target="submenu"
+        = link_to edit_user_registration_path, class: "flex items-center gap-1" do
+            => heroicon("pencil", options: { class: "h-4 w-4" })
+            | Profile
+
+        / Mobile Items
+        = link_to accounts_path, class: "flex lg:hidden items-center gap-1" do
+          => heroicon("arrow-path", options: { class: "h-4 w-4" })
+          | Change Account
+
+        - if policy([:admin, :dashboard]).show?
+          = link_to admin_dashboard_path, class: "flex items-center gap-1" do
+            => heroicon("lock-closed", options: { class: "h-4 w-4" })
+            | Admin
+
+        - if policy([:developer, :api_token]).index?
+          = link_to developer_api_tokens_path, class: "flex items-center gap-1" do
+            => heroicon("code-bracket", options: { class: "h-4 w-4" })
+            | API Tokens
+
+        - if policy([:developer]).docs?
+          = link_to "/developer/apipie", class: "flex items-center gap-1", target: "_blank" do
+            => heroicon("document", options: { class: "h-4 w-4" })
+            | API Docs
+
+        = link_to destroy_user_session_path, class: "flex items-center gap-1" do
+          => heroicon("arrow-left-on-rectangle", options: { class: "h-4 w-4" })
+          | Log out
