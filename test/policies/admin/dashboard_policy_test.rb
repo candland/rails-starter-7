@@ -1,13 +1,27 @@
 require "test_helper"
 
 class Admin::DashboardPolicyTest < ActiveSupport::TestCase
-  setup do
-    @user = create(:user, :admin)
+  class UserTest < Admin::DashboardPolicyTest
+    setup do
+      @user = create(:user)
 
-    @policy = UserPolicy.new(OpenStruct.new(user: @user), @user)
+      @policy = Admin::DashboardPolicy.new(OpenStruct.new(user: @user), @user)
+    end
+
+    def test_show
+      refute @policy.show?
+    end
   end
 
-  def test_show
-    assert @policy.show?
+  class AdminTest < Admin::DashboardPolicyTest
+    setup do
+      @user = create(:user, :admin)
+
+      @policy = Admin::DashboardPolicy.new(OpenStruct.new(user: @user), @user)
+    end
+
+    def test_show
+      assert @policy.show?
+    end
   end
 end
