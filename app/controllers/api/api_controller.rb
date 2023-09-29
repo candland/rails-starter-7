@@ -23,6 +23,8 @@ class Api::ApiController < ActionController::API
 
   rescue_from Apipie::ParamMissing, with: :param_missing
 
+  rescue_from Apipie::ParamMultipleMissing, with: :param_missing
+
   rescue_from Apipie::ParamInvalid, with: :param_invalid
 
   # Seems to catch errors

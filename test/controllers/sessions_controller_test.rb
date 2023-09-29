@@ -32,6 +32,6 @@ describe Devise::SessionsController do
 
   it "should destroy session" do
     get destroy_user_session_path
-    assert_redirected_to new_user_session_url
+    assert_redirected_to "/"
   end
 end
