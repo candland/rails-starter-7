@@ -17,7 +17,7 @@ table
           =< link_to edit_developer_api_token_path(api_token) do
             = heroicon "pencil", options: { class: "w-4 h-4" }
           - if api_token.deleted_at.nil?
-            =< button_to [:developer, api_token], data: { confirm: 'Are you sure?' }, method: :delete, data: { turbo_confirm: "Delete #{api_token.name} token?" } do
+            =< button_to [:developer, api_token], method: :delete, data: { turbo_confirm: "Delete #{api_token.name} token?", confirm: "Delete #{api_token.name} token?" } do
               = heroicon "trash", options: { class: "w-4 h-4" }
         td = truncate api_token.token
         td = api_token.user || ""

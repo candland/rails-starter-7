@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  rescue_from Pundit::NotAuthorizedError do |exception|
+  rescue_from Pundit::NotAuthorizedError do |_exception|
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back(fallback_location: unauthenticated_root_url)
   end
@@ -21,17 +21,17 @@ class ApplicationController < ActionController::Base
   end
 
   def find_current_account
-    if signed_in?
-      # Lookup polciy directly to avoid the setting the scope check
-      scope = Pundit.policy_scope!(pundit_user, Account)
-      current_account_id = session[:current_account_id] ||= scope.first.try(:id)
-      if current_account_id
-        set_current_account scope.where(id: current_account_id).first
-      end
-    end
+    return unless signed_in?
+
+    # Lookup polciy directly to avoid the setting the scope check
+    scope = Pundit.policy_scope!(pundit_user, Account)
+    current_account_id = session[:current_account_id] ||= scope.first.try(:id)
+    return unless current_account_id
+
+    set_current_account scope.where(id: current_account_id).first
   end
 
-  def set_current_account account
+  def set_current_account(account)
     if !account
       session[:current_account_id] = nil
       find_current_account
@@ -47,22 +47,22 @@ class ApplicationController < ActionController::Base
     Current.account = find_current_account
   end
 
-  def after_sign_out_path_for _resource
+  def after_sign_out_path_for(_resource)
     unauthenticated_root_path
   end
 
-  def after_sign_in_path_for resource
+  def after_sign_in_path_for(resource)
     stored_location_for(resource) || current_accounts_path
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name])
   end
 
   def prepare_exception_notifier
     request.env["exception_notifier.exception_data"] = {
-      current_user: current_user
+      current_user:
     }
   end
 end
