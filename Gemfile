@@ -17,8 +17,7 @@ gem "turbo-rails"
 
 # Auth
 gem "devise"
-# gem "pundit_can"
-gem "pundit_can", path: "../pundit_can"
+gem "pundit_can"
 
 # API
 gem "apipie-rails"
