@@ -45,6 +45,7 @@ module RailsStarter7
       g.scaffold_stylesheet false
       g.helper false
       g.jbuilder false
+      g.test_framework :minitest, spec: false, fixture: false
     end
 
     # Default mount for action cable
