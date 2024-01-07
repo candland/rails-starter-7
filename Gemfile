@@ -29,7 +29,6 @@ gem "versionist"
 # UI / Views
 gem "heroicon"
 gem "pagy", "~> 6.0"
-gem "premailer-rails"
 gem "pretender"
 gem "simple_form"
 gem "slim-rails"
@@ -37,6 +36,10 @@ gem "subcomponent"
 # gem "view_component"
 # After View_component!
 # gem "lookbook"
+
+# Emails
+gem "inky-rb", require: "inky"
+gem "premailer-rails"
 
 # Background
 gem "sidekiq"

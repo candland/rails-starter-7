@@ -1,0 +1,41 @@
+doctype strict
+html xmlns="http://www.w3.org/1999/xhtml"
+  head
+    meta content="text/html; charset=utf-8" http-equiv="Content-Type"
+    meta content="width=device-width" name="viewport"
+    = stylesheet_link_tag "foundation_emails"
+
+  css:
+    .box {
+      background-color: #666666;
+      border-radius: 10px;
+    }
+    /*controls the height of the header*/
+    .header .wrapper-inner {
+      padding: 20px;
+    }
+  body
+    wrapper class="header" bgcolor="#ffffff"
+      container
+        row class="box"
+          columns
+            spacer size="20"
+            center
+              /= image_tag asset_url('email-logo.png'), style: "height: 80px;"
+              h1 style="color: #fefefe;" Rails Starter 7
+
+        row
+          columns
+            spacer size="40"
+            = yield
+            spacer size="30"
+
+        row class="box"
+          columns
+            spacer size="20"
+            center
+              p style="color: #fefefe; font-size: 13px; font-weight: lighter;"
+                | If you have questions please contact&nbsp;
+                a style="color: #eeeeee" href="mailto:dusty@rails-starter-7.com" dusty@rails-starter-7.com
+              p style="color: #fefefe; font-size: 13px; font-weight: lighter;"
+                | © #{Date.current.year} Rails Starter 7 all rights reserved.

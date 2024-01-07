@@ -147,6 +147,7 @@ GEM
       ffi (>= 1.0.0)
       rake
     formatador (1.1.0)
+    foundation_emails (2.2.1.0)
     fugit (1.9.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -187,6 +188,9 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     iniparse (1.5.0)
+    inky-rb (1.4.2.1)
+      foundation_emails (~> 2)
+      nokogiri
     io-console (0.7.1)
     irb (1.11.0)
       rdoc
@@ -509,6 +513,7 @@ DEPENDENCIES
   http
   image_processing (~> 1.2)
   importmap-rails
+  inky-rb
   jbuilder (~> 2.7)
   jwt
   letter_opener
