@@ -531,6 +531,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.1.0)
   redis (~> 5.0)
+  rexml
   selenium-webdriver
   sidekiq
   sidekiq-scheduler
