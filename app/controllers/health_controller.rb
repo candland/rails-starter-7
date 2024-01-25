@@ -35,7 +35,7 @@ class HealthController < ApplicationController
 
   def redis
     redis_config = {
-      url: ENV.fetch("HEROKU_REDIS_CRIMSON_URL", "redis://localhost:6379/1"),
+      url: ENV.fetch("REDIS_URL", "redis://localhost:6379/1"),
       ssl_params: {verify_mode: OpenSSL::SSL::VERIFY_NONE}
     }
     redis = Redis.new(redis_config)
