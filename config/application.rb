@@ -53,5 +53,8 @@ module RailsStarter7
 
     # Hander errors
     config.exceptions_app = routes
+
+    # Load routes files
+    config.paths["config/routes.rb"].concat Dir[Rails.root.join("config/routes/*.rb")]
   end
 end
