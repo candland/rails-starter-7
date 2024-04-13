@@ -6,6 +6,12 @@ class Website::WebsiteControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "root redirect if www" do
+    host! "www.example.com"
+    get "/"
+    assert_response :redirect
+  end
+
   test "404" do
     get "/404.html"
     assert_response :success

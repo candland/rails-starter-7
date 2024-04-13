@@ -82,3 +82,7 @@ class ActiveSupport::TestCase
   end
   # /Pundit Helpers
 end
+
+class ActionDispatch::IntegrationTest
+  before { host! "example.com" }
+end

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  constraints(host: /\Awww\./i) do
+    get "(*any)" => redirect { |params, request|
+      URI.parse(request.url).tap { |uri| uri.host = uri.host.gsub(/\Awww\./, "") }.to_s
+    }
+  end
+
   devise_for :users, controllers: {confirmations: "confirmations"}
 
   ### USERS ###
