@@ -15,11 +15,13 @@ ExceptionNotification.configure do |config|
   # Notifiers =================================================================
 
   # Email notifier sends notifications by email.
-  config.add_notifier :email, {
-    email_prefix: "[RS7] ",
-    sender_address: %("Website" <website@rails-starter-7.com>),
-    exception_recipients: %w[admin@rails-starter-7.com]
-  }
+  if !Rails.env.test? && !Rails.env.development?
+    config.add_notifier :email, {
+      email_prefix: "[RS7] ",
+      sender_address: %("Website" <website@rails-starter-7.com>),
+      exception_recipients: %w[admin@rails-starter-7.com]
+    }
+  end
   config.error_grouping = true
 
   # Webhook notifier sends notifications over HTTP protocol. Requires 'httparty' gem.
