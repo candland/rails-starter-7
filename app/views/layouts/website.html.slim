@@ -1,0 +1,12 @@
+- content_for :content do
+  - current_page.parents.any?
+    menu.flex.flex-row.gap-3.text-sm.text-gray-700.mb-4
+      - current_page.parents.reverse.each_with_index do |parent, idx|
+        li
+          a href=parent.request_path = parent.data.title
+        - if idx < current_page.parents.size - 1
+          li \
+
+  = yield
+
+= render template: "layouts/application"

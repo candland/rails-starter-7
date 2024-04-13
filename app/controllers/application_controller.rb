@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError do |_exception|
     flash[:alert] = "You are not authorized to perform this action."
-    redirect_back(fallback_location: unauthenticated_root_url)
+    redirect_back(fallback_location: current_accounts_path)
   end
 
   def pundit_user
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(_resource)
-    unauthenticated_root_path
+    root_path
   end
 
   def after_sign_in_path_for(resource)

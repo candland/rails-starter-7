@@ -27,7 +27,7 @@ class Api::V1::AuthsController < Api::ApiController
   def create
     user = User.find_by(email: auth_params[:email])
     if user&.valid_password?(auth_params[:password])
-      @token = user.api_tokens.find_or_create_by(name: (auth_params[:name] || "default")) do |token|
+      @token = user.api_tokens.find_or_create_by(name: auth_params[:name] || "default") do |token|
         token.make_token.save!
       end
       render json: {

@@ -64,7 +64,7 @@ class ActiveSupport::TestCase
     index = self.class.name.index("Policy")
     klass = self.class.name[0, index + 6]
     only_record = Array.wrap(record).last
-    klass.constantize.new(user, only_record).public_send("#{action}?")
+    klass.constantize.new(user, only_record).public_send(:"#{action}?")
   end
 
   def assert_permissions(current_user, record, permissions_hash = {})

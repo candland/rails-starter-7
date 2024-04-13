@@ -57,15 +57,5 @@ Rails.application.routes.draw do
   get "/status", to: "health#status"
 
   ### PUBLIC ###
-
-  #### ROOTS ###
-  devise_scope :user do
-    authenticated :user do
-      root to: "accounts#current", as: :authenticated_root
-    end
-
-    unauthenticated do
-      root to: "public#home", as: :unauthenticated_root
-    end
-  end
+  sitepress_pages root: true, controller: "website/website"
 end

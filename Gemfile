@@ -49,6 +49,14 @@ gem "sidekiq-scheduler"
 # Monitoring
 gem "exception_notification"
 
+# Static Pages
+gem "markdown-rails"
+gem "rouge"
+gem "sitepress-rails"
+
+# SEO
+gem "meta-tags"
+
 # Utils
 gem "http"
 gem "masked_attribute"
