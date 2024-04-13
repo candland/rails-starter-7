@@ -58,5 +58,6 @@ Rails.application.routes.draw do
 
   ### PUBLIC ###
   get "/sitemap.xml" => "website/sitemaps#index", :defaults => {format: "xml"}
+  get "/robots.txt" => "website/robots#index", :defaults => {format: "text"}
   sitepress_pages root: true, controller: "website/website"
 end

@@ -1,0 +1,9 @@
+<% if Rails.env.production? %>
+User-Agent: *
+Disallow:
+<% else %>
+User-Agent: *
+Noindex: /
+<% end %>
+
+Sitemap: <%= path_url("/sitemap.xml") %>
