@@ -14,7 +14,18 @@ title
 = csrf_meta_tags
 = csp_meta_tag
 
-meta name="description" content="Switchboard"
+= display_meta_tags site: "Rails Starter 7",
+  reverse: true,
+  description: "Rails starter kit, get moving quickly!",
+  image_src: image_url("rails-7-starter.png"),
+  og: { title: :title,
+    description: :description,
+    site_name: :site,
+    url: :canonical,
+    image: :image_src,
+    type: "website",
+  },
+  twitter: { card: "summary", site: "@candland" }
 
 link rel="icon" type="image/x-icon" href="/favicon.ico"
 link rel="icon" type="image/png" href="/favicon.png" sizes="32x32"

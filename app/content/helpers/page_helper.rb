@@ -26,4 +26,36 @@ module PageHelper
   def render_layout(layout, **, &)
     render(html: capture(&), layout: "layouts/#{layout}", **)
   end
+
+  # `url_for` doesn't create a url when a string is passed
+  def path_url path
+    URI.const_get(request.scheme.upcase).build({
+      host: Rails.application.routes.default_url_options.fetch(:host, request.host),
+      port: Rails.application.routes.default_url_options.fetch(:port, request.port),
+      path: path
+    }).to_s
+  end
+
+  def to_meta_tags page
+    {
+      title: page.data.title,
+      description: page.data.description,
+      keywords: page.data.keywords,
+      image_src: page.data.image,
+      canonical: canonical(page),
+      noindex: page.data.noindex,
+      index: page.data.index,
+      nofollow: page.data.nofollow,
+      follow: page.data.follow,
+      noarchive: page.data.noarchive,
+      prev: page.data.prev,
+      next: page.data.next,
+      og: page.data.og,
+      twitter: page.data.twitter
+    }.compact
+  end
+
+  def canonical page
+    path_url(page.request_path.gsub(/index\.html\z/, "").gsub(/\.html\z/, "").gsub(/\/\z/, ""))
+  end
 end
