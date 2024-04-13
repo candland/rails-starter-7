@@ -50,5 +50,8 @@ module RailsStarter7
 
     # Default mount for action cable
     config.action_cable.mount_path = "/cable"
+
+    # Hander errors
+    config.exceptions_app = routes
   end
 end

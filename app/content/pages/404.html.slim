@@ -1,0 +1,12 @@
+---
+title: Oops, we couldn't find what you're looking for - 404
+noindex: true
+---
+
+.container.mx-auto.prose.lg:prose-lg.py-20.px-4'
+  h1 = current_page.data.title
+
+  h2 Maybe something here?
+  menu.flex.flex-col.gap-1
+    - PageModel.all.reject{_1.data.noindex}.each do |page|
+      li : a href=page.request_path = page.data.title
