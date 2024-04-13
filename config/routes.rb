@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   get "/status", to: "health#status"
 
   ### PUBLIC ###
+  get "/sitemap.xml" => "website/sitemaps#index", :defaults => {format: "xml"}
   sitepress_pages root: true, controller: "website/website"
 end
