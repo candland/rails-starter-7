@@ -13,3 +13,5 @@ linters:
 
   LineLength:
     enabled: false
+
+skip_frontmatter: true
