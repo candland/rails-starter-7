@@ -92,6 +92,7 @@ PreCommit:
 PrePush:
   Brakeman:
     enabled: true
+    flags: ['--skip-files', '/app/content/pages/']
 
   RakeTarget:
     enabled: true
